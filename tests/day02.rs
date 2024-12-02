@@ -11,7 +11,6 @@ fn parse() -> Vec<Vec<i32>> {
 }
 
 fn safe_part1(seq: &[i32]) -> bool {
-    println!("\tChecking: {seq:?}");
     let first_delta = seq[0] - seq[1];
     if first_delta == 0 {
         return false;
@@ -28,7 +27,6 @@ fn safe_part1(seq: &[i32]) -> bool {
 }
 
 fn safe_part2(seq: &[i32]) -> bool {
-    println!("Report: {seq:?}");
     if safe_part1(seq) {
         return true;
     }
@@ -51,4 +49,5 @@ fn part2() {
     let reports = parse();
     let ans = reports.iter().filter(|report| safe_part2(report)).count();
     println!("Day 2, Part 2: {ans}");
+    assert_eq!(430, ans);
 }
